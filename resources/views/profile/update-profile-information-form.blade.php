@@ -72,6 +72,37 @@
             <x-jet-input id="phone" type="text" class="mt-1 block w-full" wire:model.defer="state.phone" />
             <x-jet-input-error for="phone" class="mt-2" />
         </div>
+
+        <div class="col-span-6 sm:col-span-4">
+            <div>
+                Role:
+            </div>
+            <div>
+                <ul>
+                    @foreach(Auth::user()->getRoleNames() as $role)
+                        <li>
+                            {{ $role }}
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-span-6 sm:col-span-4">
+            <div>
+                Permission:
+            </div>
+            <div>
+                <ul>
+                    @foreach(Auth::user()->getAllPermissions() as $permission)
+                        <li>
+                            {{ $permission->name }}
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+
     </x-slot>
 
     <x-slot name="actions">

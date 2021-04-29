@@ -20,3 +20,12 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+Route::get('/role/create', function () {
+    return "create role page";
+})->middleware( ['auth:sanctum', 'can:create role'] );
+
+Route::get('/permission/create', function () {
+    return "create faculty page";
+})->middleware( ['auth:sanctum', 'role:admin'] );
