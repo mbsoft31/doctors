@@ -23,7 +23,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 
 Route::get('/role/create', function () {
-    return "create role page";
+    $user = Auth::user();
+    return "connected user email is: " . $user->email;
 })->middleware( ['auth:sanctum', 'can:create role'] );
 
 Route::get('/permission/create', function () {
