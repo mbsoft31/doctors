@@ -33374,6 +33374,11 @@ select {
   --tw-backdrop-sepia: sepia(100%);
 }
 
+.form-check:checked + .check-label {
+  --tw-bg-opacity: 1;
+  background-color: rgba(236, 72, 153, var(--tw-bg-opacity));
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
