@@ -8,7 +8,7 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
@@ -19,8 +19,6 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
     </head>
     <body class="font-sans antialiased">
-        <x-jet-banner />
-
         <div class="min-h-screen bg-gray-50">
             @livewire('navigation-menu')
 
@@ -28,6 +26,12 @@
             <main>
                 {{ $slot }}
             </main>
+
+            <footer class="mt-8 bg-white shadow-sm">
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-8 text-center">
+                    All right reserved &reg;
+                </div>
+            </footer>
         </div>
 
         @stack('modals')

@@ -10,6 +10,19 @@
             @csrf
 
             <div>
+                <div class="w-full flex items-center rounded-lg overflow-hidden">
+                    <div class="group">
+                        <input type="checkbox" class="hidden w-0 h-0 group-focus:checked:bg-red" value="patient" name="type" id="type-patient">
+                        <label class="w-1/2 py-4 px-6 bg-gray-100 " for="type-patient">{{ __('Register as a patient') }}</label>
+                    </div>
+                    <div class="group">
+                        <input type="checkbox" class="hidden w-0 h-0 group-focus:checked:bg-red" value="doctor" name="type" id="type-doctor">
+                        <label class="w-1/2 py-4 px-6 bg-gray-100 " for="type-doctor">{{ __('Register as a doctor') }}</label>
+                    </div>
+                </div>
+            </div>
+
+            <div>
                 <x-jet-label for="name" value="{{ __('Name') }}" />
                 <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>

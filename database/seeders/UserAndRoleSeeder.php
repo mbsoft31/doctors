@@ -9,9 +9,22 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Traits\HasPermissions;
+use Spatie\Permission\Traits\HasRoles;
 
 class UserAndRoleSeeder extends Seeder
 {
+
+    public $actions = [
+        'index' => 'viewAny',
+        'show' => 'view',
+        'create' => 'create',
+        'store' => 'create',
+        'edit' => 'update',
+        'update' => 'update',
+        'destroy' => 'delete',
+    ];
+
     /**
      * Seed the application's database.
      *
@@ -19,46 +32,81 @@ class UserAndRoleSeeder extends Seeder
      */
     public function run()
     {
-        $role_admin = Role::create([
-            "name" => "admin",
-        ]);
-        $role_doctor = Role::create([
-            "name" => "doctor",
-        ]);
-        $role_patient = Role::create([
-            "name" => "patient",
-        ]);
 
-        $permission = Permission::create(["name" => "create role",]);
+        $roles = [
+            "admin" => [
+                "permissions" => [
+                    "role" => ["index", "show", "create", "store", "edit", "update", "destroy"],
+                    "permission" => ["index", "show", "create", "store", "edit", "update", "destroy"],
+                    "user" => ["index", "show", "create", "store", "edit", "update", "destroy"],
+                    "speciality" => ["index", "show", "create", "store", "edit", "update", "destroy"],
+                ],
+            ],
+            "doctor" => [
+                "permissions" => [
+                    "reservation" => ["index", "show", "create", "store", "edit", "update", "destroy", "accept", "delay"],
+                ],
+            ],
+            "patient" => [
+                "permissions" => [
+                    "reservation" => ["index", "show", "create", "store", "edit", "update", "destroy"],
+                    "doctor" => ["show"],
+                ],
+            ],
 
+        ];
+
+        foreach ($roles as $role => $permissions)
+        {
+            /** @var Role $r */
+            $r = Role::findOrCreate($role);
+            foreach ($permissions["permissions"] as $model => $actions)
+            {
+                foreach ($actions as $action)
+                {
+                    if (isset($this->actions[$action]))
+                    {
+                        $permission = $this->actions[$action] . " " . $model;
+                        /** @var Permission $p */
+                        $p = Permission::findOrCreate($permission);
+                        $r->givePermissionTo($p);
+                    }
+                    else
+                    {
+                        $permission = $action . " " . $model;
+                        /** @var Permission $p */
+                        $p = Permission::findOrCreate($permission);
+                        $r->givePermissionTo($p);
+                    }
+                }
+            }
+        }
+
+        /** @var HasRoles $admin */
         $admin = User::factory()->create([
             "name" => "admin",
             "email" => "admin@mail.com",
             "phone" => "0666666661",
             "password" => Hash::make("admin1234"),
         ]);
-        $admin->assignRole($role_admin);
+        $admin->assignRole("admin");
 
+        /** @var HasRoles $doctor */
         $doctor = User::factory()->create([
             "name" => "doctor",
             "email" => "doctor@mail.com",
             "phone" => "0666666662",
             "password" => Hash::make("doctor1234"),
         ]);
-        $doctor->assignRole($role_doctor);
+        $doctor->assignRole("doctor");
 
+        /** @var HasRoles $patient */
         $patient = User::factory()->create([
             "name" => "patient",
             "email" => "patient@mail.com",
             "phone" => "0666666663",
             "password" => Hash::make("patient1234"),
         ]);
-        $patient->assignRole($role_patient);
-
-        $role_admin->givePermissionTo('create role');
-
-        if ($doctor->hasRole('admin')){
-            // execeti admin
-        }
+        $patient->assignRole("patient");
     }
 }

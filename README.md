@@ -25,3 +25,9 @@ php artisan migrate:fresh --seed
 php artisan serve 
 
 a server will start on http://127.0.0.1:8000
+
+
+# ui
+
+https://codecanyon.net/item/doctor-appointment-booking-app-online-pharmacy-app-delivery-boy-app-template-in-flutter-3-apps/screenshots/28844382?index=19
+ 
