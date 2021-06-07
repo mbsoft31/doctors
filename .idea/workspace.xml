@@ -23,21 +23,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a576c68-0420-4948-a1c7-15f4e2152a0c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/View/Components/VisitorLayout.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/doctor-female.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/components/appointment/action-button.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/home.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/visitor.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/navigation-menu-visitor.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/jetstream.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/jetstream.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/appointment/table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/appointment/table.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/button.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/button.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/components/doctor/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/doctor/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/navigation-menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/application-mark.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/application-mark.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/View/Components/AppLayout.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/Components/AppLayout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/View/Components/VisitorLayout.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/Components/VisitorLayout.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/visitor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/visitor.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/navigation-menu-visitor.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/visitor-nav.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/appointment.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/appointment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/doctor.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/doctor.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -240,7 +233,7 @@
       <workItem from="1621297058866" duration="28567000" />
       <workItem from="1621756220793" duration="635000" />
       <workItem from="1621839244504" duration="156000" />
-      <workItem from="1623036576063" duration="22724000" />
+      <workItem from="1623036576063" duration="24650000" />
     </task>
     <servers />
   </component>

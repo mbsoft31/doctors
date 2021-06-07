@@ -5,7 +5,7 @@
             <div class="flex flex-grow justify-between">
                 <!-- Logo -->
                 <div class="flex-grow flex items-center">
-                    <a href="{{ route('home') }}">
+                    <a href="/">
                         <x-jet-application-mark class="block h-9 w-auto text-white fill-current" />
                     </a>
                 </div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Appointment;
+use App\Models\User;
 
 Route::get("/appointment", function () {
 

@@ -9,11 +9,7 @@ use Illuminate\View\View;
 
 class VisitorLayout extends Component
 {
-    /**
-     * Get the view / contents that represents the component.
-     *
-     * @return Application|Factory|\Illuminate\Contracts\View\View|View
-     */
+
     public function render()
     {
         return view('layouts.visitor');
