@@ -44,12 +44,12 @@ class UserAndRoleSeeder extends Seeder
             ],
             "doctor" => [
                 "permissions" => [
-                    "reservation" => ["index", "show", "create", "store", "edit", "update", "destroy", "accept", "delay"],
+                    "appointment" => ["index", "show", "create", "store", "edit", "update", "destroy", "delay"],
                 ],
             ],
             "patient" => [
                 "permissions" => [
-                    "reservation" => ["index", "show", "create", "store", "edit", "update", "destroy"],
+                    "appointment" => ["index", "show", "create", "store", "edit", "update", "destroy"],
                     "doctor" => ["show"],
                 ],
             ],

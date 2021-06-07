@@ -23,15 +23,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a576c68-0420-4948-a1c7-15f4e2152a0c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/View/Auth/Livewire/Register.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/auth/components/register.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Actions/Appointment/CreateAppointment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Actions/Auth/CreateDoctor.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Appointment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/migrations/2021_06_07_131248_create_appointments_table.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/appointment/create.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/appointment/index.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/auth/doctor/register.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/appointment/form.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/appointment/table.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/doctor/profile.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/doctor/profile.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/appointment.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes/doctor.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/resources/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/FortifyServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/FortifyServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/View/Auth/Livewire/Register.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/View/Auth/Register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/UserAndRoleSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/UserAndRoleSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/guest.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/guest.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/button.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/button.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/navigation-menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,16 +194,18 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\mouadh\Desktop\code\doctors\app\View\Auth\Livewire" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\mouadh\Desktop\code\doctors\resources\views\components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\mouadh\Desktop\code\doctors\app\Actions\Appointment" />
+      <recent name="D:\mouadh\Desktop\code\doctors\app\View\Auth" />
+      <recent name="D:\mouadh\Desktop\code\doctors\app\View\Auth\Livewire" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.phpunit.xml">
@@ -226,7 +241,10 @@
       <workItem from="1620749385586" duration="307000" />
       <workItem from="1620749712588" duration="16338000" />
       <workItem from="1621053220046" duration="744000" />
-      <workItem from="1621297058866" duration="27684000" />
+      <workItem from="1621297058866" duration="28567000" />
+      <workItem from="1621756220793" duration="635000" />
+      <workItem from="1621839244504" duration="156000" />
+      <workItem from="1623036576063" duration="15156000" />
     </task>
     <servers />
   </component>
@@ -249,10 +267,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="499" y="172" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1621384987998">
+    <state x="499" y="172" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1623071709450">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="499" y="172" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.834@0.0.1536.834" timestamp="1621384987998" />
+    <state x="499" y="172" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.834@0.0.1536.834" timestamp="1623071709450" />
     <state x="547" y="329" key="ComposerInitDialogKey" timestamp="1621308377780">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -261,33 +279,33 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1619738255864" />
-    <state width="1493" height="213" key="GridCell.Tab.0.bottom" timestamp="1621398292822">
+    <state width="1493" height="213" key="GridCell.Tab.0.bottom" timestamp="1621417280050">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1621398292822" />
-    <state width="1493" height="213" key="GridCell.Tab.0.center" timestamp="1621398292822">
+    <state width="1493" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1621417280050" />
+    <state width="1493" height="213" key="GridCell.Tab.0.center" timestamp="1621417280050">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1621398292822" />
-    <state width="1493" height="213" key="GridCell.Tab.0.left" timestamp="1621398292822">
+    <state width="1493" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1621417280050" />
+    <state width="1493" height="213" key="GridCell.Tab.0.left" timestamp="1621417280050">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1621398292822" />
-    <state width="1493" height="213" key="GridCell.Tab.0.right" timestamp="1621398292822">
+    <state width="1493" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1621417280050" />
+    <state width="1493" height="213" key="GridCell.Tab.0.right" timestamp="1621417280050">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1621398292822" />
+    <state width="1493" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1621417280050" />
     <state x="349" y="152" key="IDE.errors.dialog" timestamp="1621053255998">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="349" y="152" key="IDE.errors.dialog/0.0.1536.834@0.0.1536.834" timestamp="1621053255998" />
-    <state x="540" y="140" key="NewPhpClassDialog" timestamp="1620749751948">
+    <state x="540" y="140" key="NewPhpClassDialog" timestamp="1623071353784">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="540" y="140" key="NewPhpClassDialog/0.0.1536.834@0.0.1536.834" timestamp="1620749751948" />
-    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1621310108273">
+    <state x="540" y="140" key="NewPhpClassDialog/0.0.1536.834@0.0.1536.834" timestamp="1623071353784" />
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1623071682994">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1621310108273" />
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1623071682994" />
   </component>
 </project>

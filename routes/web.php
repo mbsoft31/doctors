@@ -17,23 +17,19 @@ Route::get('/', function () {
     return redirect()->route("dashboard");
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::get('/dashboard', function () {
     return view('dashboard');
-})->name('dashboard');
+})->middleware(['auth:sanctum', 'verified'])->name('dashboard');
 
 Route::prefix("role")->name("role.")->middleware(["auth:sanctum", "role:admin"])->group(function () {
-
     Route::get("/", \App\View\Role\Index::class)->name("index");
-    // Route::get('/{role}/edit', \App\View\Role\Edit::class)->name("edit")->middleware( ['can:update role'] );
 });
 
-Route::prefix("speciality")->name("speciality.")->middleware(["auth:sanctum", "role:admin"])->group(function () {
-
+Route::prefix("speciality")->name("speciality.")->middleware(["auth:sanctum"])->group(function () {
     Route::get("/", \App\View\Speciality\Index::class)->name("index");
-    // Route::get('/{role}/edit', \App\View\Role\Edit::class)->name("edit")->middleware( ['can:update role'] );
 });
 
 
-Route::get('/permission/create', function () {
-    return "create faculty page";
-})->middleware( ['auth:sanctum', 'role:admin'] );
+require "doctor.php";
+
+require "appointment.php";

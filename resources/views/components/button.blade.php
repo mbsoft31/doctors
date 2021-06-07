@@ -8,6 +8,7 @@
     $colors = [
         "gray" => "focus:outline-none focus:ring-2 focus:bg-gray-700 focus:text-white hover:ring-2 hover:bg-gray-700 hover:text-gray-50",
         "blue" => "focus:outline-none focus:ring-2 focus:bg-blue-700 focus:text-white hover:ring-2 hover:bg-blue-700 hover:text-gray-50",
+        "indigo" => "focus:outline-none focus:ring-2 focus:bg-indigo-700 focus:text-white hover:ring-2 hover:bg-indigo-700 hover:text-gray-50",
         "red" => "focus:outline-none focus:ring-2 focus:bg-red-700 focus:text-white hover:ring-2 hover:bg-red-700 hover:text-gray-50",
         "green" => "focus:outline-none focus:ring-2 focus:bg-green-700 focus:text-white hover:ring-2 hover:bg-green-700 hover:text-gray-50",
     ];

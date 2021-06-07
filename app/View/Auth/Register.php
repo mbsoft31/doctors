@@ -14,12 +14,12 @@ class Register extends Component
     public function save()
     {
         $user = (new CreateNewUser())->create($this->state);
-        \Auth::login($user);
+        Auth::login($user);
         $this->redirect("/");
     }
 
     public function render()
     {
-        return view('auth.components.register');
+        return view('auth.register')->layout("guest");
     }
 }

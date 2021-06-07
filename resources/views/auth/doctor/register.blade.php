@@ -6,25 +6,8 @@
 
         <x-jet-validation-errors class="mb-4" />
 
-        <form method="POST" wire:submit.prevent="save">
+        <form method="POST" action="{{ route("auth.doctor.register") }}" wire:submit.prevent="save">
             @csrf
-
-            <div>
-                <div class="w-full flex items-center rounded-lg overflow-hidden">
-                    <div class="group">
-                        <label class="check-label text-sm w-1/2 py-4 px-6 bg-gray-100" for="type-patient">
-                            <input wire:model="state.type" type="radio" class="form-check" value="patient" name="type" id="type-patient" >
-                            {{ __('Register as a patient') }}
-                        </label>
-                    </div>
-                    <div class="group">
-                        <label class="check-label text-sm w-1/2 py-4 px-6 bg-gray-100 " for="type-doctor">
-                            <input wire:model="state.type" type="radio" class="form-check" value="doctor" name="type" id="type-doctor">
-                            {{ __('Register as a doctor') }}
-                        </label>
-                    </div>
-                </div>
-            </div>
 
             <div>
                 <x-jet-label for="name" value="{{ __('Name') }}" />
