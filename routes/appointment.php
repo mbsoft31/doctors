@@ -1,8 +1,10 @@
 <?php
 
+use App\Models\Appointment;
+
 Route::get("/appointment", function () {
 
-    if (Auth::user()->hasRole("doctor")) redirect()->route("doctor.appointment.index");
+    if (Auth::user()->hasRole("doctor")) return redirect()->route("doctor.appointment.index");
 
     $appointments = Appointment::where("patient_id", Auth::id())->get();
 
@@ -10,7 +12,7 @@ Route::get("/appointment", function () {
         "appointments" => $appointments,
     ]);
 
-})->middleware("auth:sanctum", "role:patient")->name("appointment.index");
+})->middleware("auth:sanctum")->name("appointment.index");
 
 Route::get("/appointment/create", function() {
 
@@ -32,3 +34,31 @@ Route::post("/appointment/store", function() {
     return redirect()->route("appointment.index");
 
 })->middleware(["auth:sanctum", "role:doctor"])->name("appointment.store");
+
+Route::post("/doctor/appointment/{appointment}/accept", function(Appointment $appointment) {
+    $appointment->accept();
+    if (request()->has('back'))
+        return back();
+    return redirect()->route("appointment.index");
+})->middleware(["auth:sanctum", "role:doctor"])->name("doctor.appointment.accept");
+
+Route::post("/doctor/appointment/{appointment}/consult", function(Appointment $appointment) {
+    // $appointment->consult();
+    if (request()->has('back'))
+        return back();
+    return redirect()->route("appointment.index");
+})->middleware(["auth:sanctum", "role:doctor"])->name("doctor.appointment.consult");
+
+Route::post("/doctor/appointment/{appointment}/delay", function(Appointment $appointment) {
+    $appointment->delay();
+    if (request()->has('back'))
+        return back();
+    return redirect()->route("appointment.index");
+})->middleware(["auth:sanctum", "role:doctor"])->name("doctor.appointment.delay");
+
+Route::post("/doctor/appointment/{appointment}/destroy", function(Appointment $appointment) {
+    $appointment->delete();
+    if (request()->has('back'))
+        return back();
+    return redirect()->route("appointment.index");
+})->middleware(["auth:sanctum", "can:delete appointment"])->name("doctor.appointment.destroy");

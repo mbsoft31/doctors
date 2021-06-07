@@ -26,11 +26,11 @@ Route::get("/doctor/profile/{user}", function ($user) {
 
     $doctor = User::findOrFail($user);
 
-    if ( ! $doctor->hasRole("doctor") ) abort(403);
+    if ( ! $doctor->hasRole("doctor") ) abort(404);
 
     return view("doctor.profile", compact("doctor"));
 
-})->middleware(["auth:sanctum", "role:doctor"])->name("doctor.profile");
+})->middleware(["auth:sanctum"])->name("doctor.profile");
 
 Route::get("/doctor/appointment", function (){
 
@@ -42,6 +42,4 @@ Route::get("/doctor/appointment", function (){
 
 })->middleware(["auth:sanctum", "role:doctor"])->name("doctor.appointment.index");
 
-Route::get("/doctor/appointment/{appointment}", function($appointment) {})->middleware(["auth:sanctum", "role:doctor"])->name("doctor.appointment.show");
-Route::post("/doctor/appointment/{appointment}/destroy", function($appointment) {})->middleware(["auth:sanctum", "role:doctor"])->name("doctor.appointment.destroy");
-Route::post("/doctor/appointment/{appointment}/delay", function($appointment) {})->middleware(["auth:sanctum", "role:doctor"])->name("doctor.appointment.delay");
+Route::get("/doctor/appointment/{appointment}", function(Appointment $appointment) {})->middleware(["auth:sanctum", "role:doctor"])->name("doctor.appointment.show");

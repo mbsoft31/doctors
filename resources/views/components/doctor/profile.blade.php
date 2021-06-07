@@ -4,10 +4,15 @@
         <div class="w-full md:w-1/3 mx-auto md:mx-0 bg-transparent">
 
             <div class="mx-auto w-40 h-40 md:w-48 md:h-48 border shadow-sm rounded-full overflow-hidden">
-                <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"></path>
-                </svg>
-                {{--<img class="w-full h-full object-cover" src="" alt="avatar">--}}
+                @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                    @if( ! is_null(Auth::user()->profile_photo_url) )
+                        <img class="w-full h-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="avatar">
+                    @else
+                        <svg class="h-full w-full text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    @endif
+                @endif
             </div>
 
             <div class="-mt-6 py-10 px-4 bg-white rounded-md border shadow">

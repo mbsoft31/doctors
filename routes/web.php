@@ -14,8 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->route("dashboard");
-});
+    return view("home");
+})->name("home");
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -25,10 +25,9 @@ Route::prefix("role")->name("role.")->middleware(["auth:sanctum", "role:admin"])
     Route::get("/", \App\View\Role\Index::class)->name("index");
 });
 
-Route::prefix("speciality")->name("speciality.")->middleware(["auth:sanctum"])->group(function () {
+Route::prefix("speciality")->middleware(["auth:sanctum", "role:admin"])->name("speciality.")->group(function () {
     Route::get("/", \App\View\Speciality\Index::class)->name("index");
 });
-
 
 require "doctor.php";
 

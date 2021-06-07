@@ -1,4 +1,4 @@
-@props(['color' => 'gray', 'type' => 'default'])
+@props(['color' => 'gray', 'btnType' => 'default', 'tag' => 'button', 'href' => '#'])
 
 @php
     $types = [
@@ -14,6 +14,12 @@
     ];
 @endphp
 
-<button type="button" {{ $attributes->merge(["class" => $types[$type] . " " . $colors[$color]])  }}>
-    {{ $slot }}
-</button>
+@if($tag == "a")
+    <a href="{{$href}}" {{ $attributes->merge(["class" => $types[$btnType] . " " . $colors[$color]])  }}>
+        {{ $slot }}
+    </a>
+@else
+    <button {{ $attributes->merge(["class" => $types[$btnType] . " " . $colors[$color]])  }}>
+        {{ $slot }}
+    </button>
+@endif
