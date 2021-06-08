@@ -23,8 +23,12 @@
                     @endrole
 
                     @auth
-                        <x-jet-nav-link href="{{ route('appointment.index')}}" :active="request()->routeIs('appointment.index')">
+                        <x-jet-nav-link href="{{ route('appointment.index')}}" :active="request()->routeIs('appointment.index') || request()->routeIs('doctor.appointment.index') ">
                             {{ __('Appointments') }}
+                        </x-jet-nav-link>
+
+                        <x-jet-nav-link href="{{ route('appointment.create')}}" :active="request()->routeIs('appointment.create')">
+                            {{ __('Create appointment') }}
                         </x-jet-nav-link>
                     @endauth
                 </div>

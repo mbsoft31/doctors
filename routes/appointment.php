@@ -18,8 +18,8 @@ Route::get("/appointment", function () {
 Route::get("/appointment/create", function() {
 
     return view("appointment.create", [
-        "doctor" => User::find(2),
-        //"patient" => Auth::user(),
+        // "doctor" => User::find(2),
+        // "patient" => Auth::user(),
     ]);
 
 })->middleware(["auth:sanctum", "role:doctor"])->name("appointment.create");
