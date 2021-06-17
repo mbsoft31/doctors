@@ -1,5 +1,6 @@
 <?php
 
+use App\Actions\Appointment\CreateAppointment;
 use App\Models\Appointment;
 use App\Models\User;
 
@@ -22,7 +23,7 @@ Route::get("/appointment/create", function() {
         // "patient" => Auth::user(),
     ]);
 
-})->middleware(["auth:sanctum", "role:doctor"])->name("appointment.create");
+})->middleware(["auth:sanctum"])->name("appointment.create");
 
 Route::post("/appointment/store", function() {
 
@@ -34,7 +35,7 @@ Route::post("/appointment/store", function() {
 
     return redirect()->route("appointment.index");
 
-})->middleware(["auth:sanctum", "role:doctor"])->name("appointment.store");
+})->middleware(["auth:sanctum"])->name("appointment.store");
 
 Route::post("/doctor/appointment/{appointment}/accept", function(Appointment $appointment) {
     $appointment->accept();

@@ -23,9 +23,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a576c68-0420-4948-a1c7-15f4e2152a0c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/images/197692305_945976819495643_2281603800437489340_n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/appointment/calendar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/doctors.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/doctors.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/navigation-menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-menu.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Actions/Appointment/CreateAppointment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Appointment/CreateAppointment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_06_07_131248_create_appointments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_06_07_131248_create_appointments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/appointment/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/appointment/form.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/appointment.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/appointment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/doctor.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/doctor.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,6 +169,7 @@
       <path value="$PROJECT_DIR$/vendor/psr/event-dispatcher" />
       <path value="$PROJECT_DIR$/vendor/phar-io/version" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
+      <path value="$PROJECT_DIR$/vendor/acaronlex/laravel-calendar" />
     </include_path>
   </component>
   <component name="ProjectId" id="1rqoIa12mt7BixIOKbuP6tb6VJC" />
@@ -175,7 +185,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/View/Components" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -227,7 +237,9 @@
       <workItem from="1621297058866" duration="28567000" />
       <workItem from="1621756220793" duration="635000" />
       <workItem from="1621839244504" duration="156000" />
-      <workItem from="1623036576063" duration="26268000" />
+      <workItem from="1623036576063" duration="27055000" />
+      <workItem from="1623279485779" duration="4834000" />
+      <workItem from="1623914841941" duration="662000" />
     </task>
     <servers />
   </component>
@@ -258,10 +270,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="547" y="329" key="ComposerInitDialogKey/0.0.1536.834@0.0.1536.834" timestamp="1621308377780" />
-    <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1623081225460">
+    <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1623153110030">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1623081225460" />
+    <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1623153110030" />
     <state width="1493" height="213" key="GridCell.Tab.0.bottom" timestamp="1621417280050">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

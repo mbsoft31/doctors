@@ -4,16 +4,16 @@
 
     <div>
         <label for="appointment_date">
-            {{ __("Appointment date") }}
+            {{ __("Start date") }}
         </label>
-        <input class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" type="text" id="appointment_date" name="appointment_date">
+        <input class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" type="date" id="start" name="start">
     </div>
 
     <div>
         <label for="appointment_time">
-            {{ __("Appointment time") }}
+            {{ __("End date") }}
         </label>
-        <input class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" type="text" id="appointment_time" name="appointment_time">
+        <input class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" type="date" id="end" name="end">
     </div>
 
     @if(isset($doctor) && ! is_null($doctor))
