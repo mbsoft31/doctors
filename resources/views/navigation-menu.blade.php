@@ -16,10 +16,20 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
 
+                    @role("admin")
+                    <x-jet-nav-link href="{{ route('role.index', Auth::user()) }}" :active="request()->routeIs('role.index')">
+                        {{ __('Roles') }}
+                    </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{ route('speciality.index', Auth::user()) }}" :active="request()->routeIs('speciality.index')">
+                        {{ __('Specialities') }}
+                    </x-jet-nav-link>
+                    @endrole
+
                     @role("doctor")
-                        <x-jet-nav-link href="{{ route('doctor.profile', Auth::user()) }}" :active="request()->routeIs('doctor.profile')">
-                            {{ __('Profile') }}
-                        </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('doctor.profile', Auth::user()) }}" :active="request()->routeIs('doctor.profile')">
+                        {{ __('Profile') }}
+                    </x-jet-nav-link>
                     @endrole
 
                     @auth

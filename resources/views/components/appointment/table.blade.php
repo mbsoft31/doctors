@@ -29,24 +29,24 @@
     <tbody class="bg-white divide-y divide-gray-200">
     @forelse($appointments as $appointment)
         <tr>
-            <td class="px-6 py-4">
+            <td class="px-6 py-4 text-start">
                 {{ $appointment->id }}
             </td>
-            <td class="px-6 py-4">
+            <td class="px-6 py-4 text-start">
                 {{ $appointment->patient->name }}
             </td>
-            <td class="px-6 py-4">
+            <td class="px-6 py-4 text-start">
                 <a href="{{ route("doctor.profile", $appointment->doctor) }}">
                     {{ $appointment->doctor->name }}
                 </a>
             </td>
-            <td class="px-6 py-4">
-                {{ (new \Carbon\Carbon($appointment->appointment_date))->diffForHumans() }}
+            <td class="px-6 py-4 text-start">
+                {{ (new \Carbon\Carbon($appointment->start))->format("d-m-Y") }}
             </td>
-            <td class="px-6 py-4">
-                {{ $appointment->appointment_time }}
+            <td class="px-6 py-4 text-start">
+                {{ $appointment->time }}
             </td>
-            <td class="px-6 py-4">
+            <td class="px-6 py-4 text-start">
                 {{ $appointment->status }}
             </td>
             <td class="px-6 py-4 space-x-2 whitespace-nowrap text-end text-sm font-medium">

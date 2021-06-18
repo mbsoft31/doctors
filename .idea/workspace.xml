@@ -23,18 +23,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a576c68-0420-4948-a1c7-15f4e2152a0c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/images/197692305_945976819495643_2281603800437489340_n.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/appointment/calendar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/doctors.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/doctors.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/components/input/time.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Actions/Appointment/CreateAppointment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Appointment/CreateAppointment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Appointment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Appointment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2021_06_07_131248_create_appointments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_06_07_131248_create_appointments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/appointment/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/appointment/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/components/appointment/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/appointment/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/appointment/table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/components/appointment/table.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/navigation-menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/navigation-menu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/appointment.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/appointment.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/doctor.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/doctor.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,20 +184,20 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../hotel" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\mouadh\Desktop\code\doctors\app\View\Components" />
-      <recent name="D:\mouadh\Desktop\code\doctors\resources\views\components" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\mouadh\Desktop\code\doctors\resources\views" />
       <recent name="D:\mouadh\Desktop\code\doctors\app\Actions\Appointment" />
       <recent name="D:\mouadh\Desktop\code\doctors\app\View\Auth" />
       <recent name="D:\mouadh\Desktop\code\doctors\app\View\Auth\Livewire" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\mouadh\Desktop\code\doctors\app\View\Components" />
+      <recent name="D:\mouadh\Desktop\code\doctors\resources\views\components" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.phpunit.xml">
@@ -239,7 +238,11 @@
       <workItem from="1621839244504" duration="156000" />
       <workItem from="1623036576063" duration="27055000" />
       <workItem from="1623279485779" duration="4834000" />
-      <workItem from="1623914841941" duration="662000" />
+      <workItem from="1623914841941" duration="1314000" />
+      <workItem from="1623931094307" duration="179000" />
+      <workItem from="1623952025673" duration="619000" />
+      <workItem from="1624001274776" duration="6247000" />
+      <workItem from="1624037419775" duration="2478000" />
     </task>
     <servers />
   </component>
@@ -270,10 +273,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="547" y="329" key="ComposerInitDialogKey/0.0.1536.834@0.0.1536.834" timestamp="1621308377780" />
-    <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1623153110030">
+    <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1624039935594">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1623153110030" />
+    <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1624039935594" />
     <state width="1493" height="213" key="GridCell.Tab.0.bottom" timestamp="1621417280050">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

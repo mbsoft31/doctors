@@ -18,7 +18,7 @@ class Appointment extends Model
 
     protected $guarded = [];
 
-    public $times = [
+    public static $times = [
         "08:00",
         "08:30",
         "09:00",
@@ -36,6 +36,7 @@ class Appointment extends Model
         "15:30",
         "16:00",
         "16:30",
+        "17:00",
     ];
 
     public function patient()

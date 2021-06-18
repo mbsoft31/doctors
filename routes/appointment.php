@@ -18,7 +18,10 @@ Route::get("/appointment", function () {
 
 Route::get("/appointment/create", function() {
 
+    //dd();
     return view("appointment.create", [
+        "times" => Appointment::$times,
+        "doctors" => User::allDoctors(),
         // "doctor" => User::find(2),
         // "patient" => Auth::user(),
     ]);
@@ -28,8 +31,11 @@ Route::get("/appointment/create", function() {
 Route::post("/appointment/store", function() {
 
     $inputs = request()->all();
-
-    $appointment = (new CreateAppointment())->create($inputs);
+    try {
+        $appointment = (new CreateAppointment())->create($inputs);
+    }catch (\Illuminate\Validation\ValidationException $e) {
+        dd($e->errors());
+    }
 
     $appointment->accept();
 

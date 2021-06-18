@@ -1,6 +1,6 @@
-@props(["doctor" => null, "patient" => Auth::user()])
+@props(["times" => null, "doctor" => null, "patient" => Auth::user(), "doctors" => \App\Models\User::allDoctors()])
 
-<div>
+<div class="space-y-6">
 
     <div>
         <label for="appointment_date">
@@ -9,12 +9,14 @@
         <input class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" type="date" id="start" name="start">
     </div>
 
-    <div>
-        <label for="appointment_time">
-            {{ __("End date") }}
-        </label>
-        <input class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" type="date" id="end" name="end">
-    </div>
+    @if(isset($times) && $times != null)
+        <div>
+            <label for="time">
+                {{ __("Time") }}
+            </label>
+            <x-input.time id="time" :available="$times" />
+        </div>
+    @endif
 
     @if(isset($doctor) && ! is_null($doctor))
         <input type="hidden" name="doctor_id" value="{{ $doctor->id }}">
@@ -23,7 +25,12 @@
             <label for="doctor">
                 {{ __("Doctor") }}
             </label>
-            <input class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" type="text" id="doctor" name="doctor_id">
+            <select name="doctor_id" id="doctor">
+                @foreach($doctors as $doctor)
+                    <option value="{{$doctor->id}}">{{$doctor->name}}</option>
+                @endforeach
+            </select>
+{{--            <input class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" type="text" id="doctor" name="doctor_id">--}}
         </div>
     @endif
 

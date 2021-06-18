@@ -61,4 +61,14 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+
+    public static function allDoctors()
+    {
+        $users = User::with('roles')->get();
+        return ($users->filter(function ($user) {
+            return $user->hasRole('doctor');
+        }));
+    }
+
 }
