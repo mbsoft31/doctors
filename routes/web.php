@@ -73,7 +73,6 @@ Route::get("test", function() {
         "appointments" => $appointments,
     ];
 
-    //if (request()->has("doctor"))
     $args = array_merge($args, [
         "doctor" => User::find(request()->get("doctor"))
     ]);

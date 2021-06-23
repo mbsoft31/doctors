@@ -5,34 +5,28 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ url('/') }}">
                         <x-jet-application-mark class="block h-9 w-auto" />
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-jet-nav-link>
 
                     @role("admin")
-                    <x-jet-nav-link href="{{ route('role.index', Auth::user()) }}" :active="request()->routeIs('role.index')">
-                        {{ __('Roles') }}
-                    </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('role.index', Auth::user()) }}" :active="request()->routeIs('role.index')">
+                            {{ __('Roles') }}
+                        </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('speciality.index', Auth::user()) }}" :active="request()->routeIs('speciality.index')">
-                        {{ __('Specialities') }}
-                    </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('speciality.index', Auth::user()) }}" :active="request()->routeIs('speciality.index')">
+                            {{ __('Specialities') }}
+                        </x-jet-nav-link>
                     @endrole
 
                     @role("doctor")
-                    <x-jet-nav-link href="{{ route('doctor.profile', Auth::user()) }}" :active="request()->routeIs('doctor.profile')">
-                        {{ __('Profile') }}
-                    </x-jet-nav-link>
-                    @endrole
-
-                    @auth
+                        <x-jet-nav-link href="{{ route('doctor.profile', Auth::user()) }}" :active="request()->routeIs('doctor.profile')">
+                            {{ __('Profile') }}
+                        </x-jet-nav-link>
                         <x-jet-nav-link href="{{ route('appointment.index')}}" :active="request()->routeIs('appointment.index') || request()->routeIs('doctor.appointment.index') ">
                             {{ __('Appointments') }}
                         </x-jet-nav-link>
@@ -40,7 +34,17 @@
                         <x-jet-nav-link href="{{ route('appointment.create')}}" :active="request()->routeIs('appointment.create')">
                             {{ __('Create appointment') }}
                         </x-jet-nav-link>
-                    @endauth
+                    @endrole
+
+                    @role("patient")
+                        <x-jet-nav-link href="{{ route('appointment.index')}}" :active="request()->routeIs('appointment.index') || request()->routeIs('doctor.appointment.index') ">
+                            {{ __('Appointments') }}
+                        </x-jet-nav-link>
+
+                        <x-jet-nav-link href="{{ route('appointment.create')}}" :active="request()->routeIs('appointment.create')">
+                            {{ __('Create appointment') }}
+                        </x-jet-nav-link>
+                    @endrole
                 </div>
             </div>
 
@@ -114,22 +118,39 @@
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-jet-responsive-nav-link>
 
+            @role("admin")
+                <x-jet-responsive-nav-link href="{{ route('role.index', Auth::user()) }}" :active="request()->routeIs('role.index')">
+                    {{ __('Roles') }}
+                </x-jet-responsive-nav-link>
 
-            @role("doctor")
-            <x-jet-responsive-nav-link href="{{ route('doctor.profile', Auth::user()) }}" :active="request()->routeIs('doctor.profile')">
-                {{ __('Profile') }}
-            </x-jet-responsive-nav-link>
+                <x-jet-nav-link href="{{ route('speciality.index', Auth::user()) }}" :active="request()->routeIs('speciality.index')">
+                    {{ __('Specialities') }}
+                </x-jet-nav-link>
             @endrole
 
-            @auth
-                <x-jet-responsive-nav-link href="{{ route('appointment.index')}}" :active="request()->routeIs('appointment.index')">
+            @role("doctor")
+                <x-jet-responsive-nav-link href="{{ route('doctor.profile', Auth::user()) }}" :active="request()->routeIs('doctor.profile')">
+                    {{ __('Profile') }}
+                </x-jet-responsive-nav-link>
+                <x-jet-responsive-nav-link href="{{ route('appointment.index')}}" :active="request()->routeIs('appointment.index') || request()->routeIs('doctor.appointment.index') ">
                     {{ __('Appointments') }}
                 </x-jet-responsive-nav-link>
-            @endauth
+
+                <x-jet-responsive-nav-link href="{{ route('appointment.create')}}" :active="request()->routeIs('appointment.create')">
+                    {{ __('Create appointment') }}
+                </x-jet-responsive-nav-link>
+            @endrole
+
+            @role("patient")
+                <x-jet-responsive-nav-link href="{{ route('appointment.index')}}" :active="request()->routeIs('appointment.index') || request()->routeIs('doctor.appointment.index') ">
+                    {{ __('Appointments') }}
+                </x-jet-responsive-nav-link>
+
+                <x-jet-responsive-nav-link href="{{ route('appointment.create')}}" :active="request()->routeIs('appointment.create')">
+                    {{ __('Create appointment') }}
+                </x-jet-responsive-nav-link>
+            @endrole
         </div>
 
         <!-- Responsive Settings Options -->
