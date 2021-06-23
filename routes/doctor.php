@@ -4,12 +4,15 @@
 use Acaronlex\LaravelCalendar\Calendar as CalendarClass;
 use Acaronlex\LaravelCalendar\Facades\Calendar;
 use App\Actions\Auth\CreateDoctor;
+use App\Actions\Auth\CreatePatient;
 use App\Models\Appointment;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/register-doctor', function () {
-    return view("auth.doctor.register");
+    return view("auth.doctor.register", [
+        "specialities" => \App\Models\Speciality::all(),
+    ]);
 })->name("register.doctor");
 
 Route::post('/register-doctor', function () {
@@ -23,16 +26,6 @@ Route::post('/register-doctor', function () {
     return redirect()->route("dashboard");
 
 })->name("auth.doctor.register");
-
-Route::get("/doctor/profile/{user}", function ($user) {
-
-    $doctor = User::findOrFail($user);
-
-    if ( ! $doctor->hasRole("doctor") ) abort(404);
-
-    return view("doctor.profile", compact("doctor"));
-
-})->middleware(["auth:sanctum"])->name("doctor.profile");
 
 Route::get("/doctor/appointment", function (){
 

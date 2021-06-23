@@ -1,4 +1,4 @@
-@props(['id', 'time' => null, "available" => [], "reserved" => ["09:30"]])
+@props(['id', 'time' => null, "available" => [], "reserved" => []])
 
 <div
     x-data='{time : null, times: {{ json_encode($available) }}, reserved: {{ json_encode($reserved) }}}'
@@ -8,7 +8,7 @@
         id="{{$id}}"
         name="{{$id}}"
         :value="time">
-    <div class="grid grid-cols-4 gap-4">
+    <div class="mt-4 grid grid-cols-8 gap-1.5">
         @foreach($available as $time)
             <span
                 x-show="reserved.indexOf('{{$time}}') == -1"

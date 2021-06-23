@@ -12,15 +12,15 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <a class="border-b-2 border-transparent focus:border-gray-100 focus:outline-none focus:text-gray-200 font-medium hover:border-gray-100 hover:text-gray-200 inline-flex items-center leading-5 pt-1 px-1 text-sm text-white transition" href="http://127.0.0.1:8000/login">
+                    <a href="http://127.0.0.1:8000/register-doctor" class="border-b-2 border-transparent focus:border-gray-100 focus:outline-none focus:text-gray-200 font-medium hover:border-gray-100 hover:text-gray-200 inline-flex items-center leading-5 pt-1 px-1 text-sm text-white transition">
                         {{ __('Are you a Health practitioner ?') }}
                     </a>
 
-                    <a class="border-b-2 border-transparent focus:border-gray-100 focus:outline-none focus:text-gray-200 font-medium hover:border-gray-100 hover:text-gray-200 inline-flex items-center leading-5 pt-1 px-1 text-sm text-white transition" href="http://127.0.0.1:8000/login">
+                    <a href="#" class="border-b-2 border-transparent focus:border-gray-100 focus:outline-none focus:text-gray-200 font-medium hover:border-gray-100 hover:text-gray-200 inline-flex items-center leading-5 pt-1 px-1 text-sm text-white transition">
                         {{ __('Need help ?') }}
                     </a>
 
-                    <a class="border-b-2 border-transparent focus:border-gray-100 focus:outline-none focus:text-gray-200 font-medium hover:border-gray-100 hover:text-gray-200 inline-flex items-center leading-5 pt-1 px-1 text-sm text-white transition" href="http://127.0.0.1:8000/login">
+                    <a href="http://127.0.0.1:8000/login" class="border-b-2 border-transparent focus:border-gray-100 focus:outline-none focus:text-gray-200 font-medium hover:border-gray-100 hover:text-gray-200 inline-flex items-center leading-5 pt-1 px-1 text-sm text-white transition">
                         {{ __('Login') }}
                     </a>
                 </div>

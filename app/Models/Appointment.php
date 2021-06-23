@@ -36,7 +36,6 @@ class Appointment extends Model
         "15:30",
         "16:00",
         "16:30",
-        "17:00",
     ];
 
     public function patient()

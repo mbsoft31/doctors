@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Traits\Doctor;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -19,6 +20,7 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
     use HasRoles;
+    use Doctor;
 
     /**
      * The attributes that are mass assignable.
@@ -51,6 +53,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'meta' => 'array',
     ];
 
     /**
@@ -61,14 +64,5 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
-
-
-    public static function allDoctors()
-    {
-        $users = User::with('roles')->get();
-        return ($users->filter(function ($user) {
-            return $user->hasRole('doctor');
-        }));
-    }
 
 }

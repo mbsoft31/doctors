@@ -4,6 +4,9 @@
 namespace Database\Seeders;
 
 
+use App\Actions\Auth\CreateAdmin;
+use App\Actions\Auth\CreateDoctor;
+use App\Actions\Auth\CreatePatient;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -82,31 +85,24 @@ class UserAndRoleSeeder extends Seeder
             }
         }
 
-        /** @var HasRoles $admin */
-        $admin = User::factory()->create([
-            "name" => "admin",
-            "email" => "admin@mail.com",
-            "phone" => "0666666661",
-            "password" => Hash::make("admin1234"),
-        ]);
-        $admin->assignRole("admin");
+        $users = require("users.php");
 
-        /** @var HasRoles $doctor */
-        $doctor = User::factory()->create([
-            "name" => "doctor",
-            "email" => "doctor@mail.com",
-            "phone" => "0666666662",
-            "password" => Hash::make("doctor1234"),
-        ]);
-        $doctor->assignRole("doctor");
+        foreach ($users as $user) {
+            if ($user["type"] == "admin")
+            {
+                (new CreateAdmin())->create($user);
+            }
 
-        /** @var HasRoles $patient */
-        $patient = User::factory()->create([
-            "name" => "patient",
-            "email" => "patient@mail.com",
-            "phone" => "0666666663",
-            "password" => Hash::make("patient1234"),
-        ]);
-        $patient->assignRole("patient");
+            if ($user["type"] == "doctor")
+            {
+                (new CreateDoctor())->create($user);
+            }
+
+            if ($user["type"] == "patient")
+            {
+                (new CreatePatient())->create($user);
+            }
+        }
+
     }
 }

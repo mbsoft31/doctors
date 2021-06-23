@@ -6,7 +6,7 @@
         <label for="appointment_date">
             {{ __("Start date") }}
         </label>
-        <input class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" type="date" id="start" name="start">
+        <input class="mt-4 focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-64 rounded-none rounded-r-md sm:text-sm border-gray-300" type="date" id="start" name="start">
     </div>
 
     @if(isset($times) && $times != null)
@@ -26,8 +26,12 @@
                 {{ __("Doctor") }}
             </label>
             <select name="doctor_id" id="doctor">
-                @foreach($doctors as $doctor)
-                    <option value="{{$doctor->id}}">{{$doctor->name}}</option>
+                @foreach($doctors as $doctor_model)
+                    @if( !is_null($doctor) && $doctor_model->is($doctor))
+                        <option value="{{$doctor_model->id}}" selected>{{$doctor_model->name}}</option>
+                    @else
+                        <option value="{{$doctor_model->id}}">{{$doctor_model->name}}</option>
+                    @endif
                 @endforeach
             </select>
 {{--            <input class="focus:ring-indigo-500 focus:border-indigo-500 flex-1 block w-full rounded-none rounded-r-md sm:text-sm border-gray-300" type="text" id="doctor" name="doctor_id">--}}

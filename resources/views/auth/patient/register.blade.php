@@ -25,21 +25,12 @@
 
                 <x-jet-validation-errors class="mb-4" />
 
-                <form method="POST" action="{{ route("auth.doctor.register") }}" wire:submit.prevent="register">
+                <form method="POST" action="{{ route("auth.patient.register") }}" wire:submit.prevent="register">
                     @csrf
 
                     <div>
                         <x-jet-label for="name" value="{{ __('Name') }}" />
                         <x-jet-input wire:model="state.name" id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-                    </div>
-
-                    <div class="mt-4">
-                        <x-jet-label for="phone" value="{{ __('Speciality') }}" />
-                        <select wire:model="state.speciality_id" id="speciality-id" name="speciality-id" class="block mt-1 w-full border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm" required>
-                            @foreach($specialities as $speciality)
-                                <option value="{{$speciality->id}}">{{$speciality->name}}</option>
-                            @endforeach
-                        </select>
                     </div>
 
                     <div class="mt-4">

@@ -18,15 +18,19 @@ Route::get("/appointment", function () {
 
 Route::get("/appointment/create", function() {
 
-    //dd();
-    return view("appointment.create", [
+    $args = [
         "times" => Appointment::$times,
-        "doctors" => User::allDoctors(),
-        // "doctor" => User::find(2),
-        // "patient" => Auth::user(),
+        "doctors" => User::where("type", "doctor")->where("id", "<>", Auth::id())->get(),
+    ];
+
+    //if (request()->has("doctor"))
+    $args = array_merge($args, [
+        "doctor" => User::findOrFail(request()->get("doctor"))
     ]);
 
-})->middleware(["auth:sanctum"])->name("appointment.create");
+    return view("appointment.create", $args);
+
+})->middleware(["auth"])->name("appointment.create");
 
 Route::post("/appointment/store", function() {
 
@@ -58,7 +62,7 @@ Route::post("/doctor/appointment/{appointment}/consult", function(Appointment $a
 })->middleware(["auth:sanctum", "role:doctor"])->name("doctor.appointment.consult");
 
 Route::post("/doctor/appointment/{appointment}/delay", function(Appointment $appointment) {
-    $appointment->delay();
+    $appointment->delay(\Carbon\Carbon::now());
     if (request()->has('back'))
         return back();
     return redirect()->route("appointment.index");

@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Spatie\Permission\Traits\HasRoles;
 
-class CreateDoctor
+class CreateAdmin
 {
     public function create(array $input)
     {
@@ -17,8 +17,6 @@ class CreateDoctor
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone' => ['required', 'string', 'max:13'],
-            'type' => ['required', 'in:doctor,patient'],
-            'speciality_id' => ['required', 'integer', 'exists:specialities,id'],
             'password' => ['required', 'string'/*, 'confirmed'*/],
         ])->validate();
 
@@ -27,13 +25,11 @@ class CreateDoctor
             'name' => $input['name'],
             'email' => $input['email'],
             'phone' => $input['phone'],
-            'type' => "doctor",
+            'type' => "admin",
             'password' => Hash::make($input['password']),
         ]);
 
-        $user->setSpeciality($input['speciality_id']);
-
-        $user->assignRole(["doctor"]);
+        $user->assignRole(["admin"]);
 
         return $user;
 

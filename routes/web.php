@@ -1,5 +1,8 @@
 <?php
 
+use App\Models\Appointment;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +17,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view("welcome");
+    return view("welcome", [
+        "doctors" => User::whereType('doctor')->get(),
+    ]);
 });
+
+Route::get("/profile/doctor/{user}", function ($user) {
+
+    $doctor = User::findOrFail($user);
+
+    if ( ! $doctor->hasRole("doctor") ) abort(404, "this is not a doctor");
+
+    return view("doctor.profile", compact("doctor"));
+
+})->name("doctor.profile");
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -31,4 +46,39 @@ Route::prefix("speciality")->middleware(["auth:sanctum", "role:admin"])->name("s
 
 require "doctor.php";
 
+require "patient.php";
+
 require "appointment.php";
+
+Route::get("test", function() {
+
+    $doctors = User::where("type", "doctor")->where("id", "<>", Auth::id())->get();
+
+    $appointments = [];
+
+    foreach ($doctors as $doctor) {
+        $test = $doctor->getDoctorCalendar($doctor);
+
+        $appointments[$doctor->id] = $test;
+        dump($test);
+
+        dump($doctor->isOccupied(Carbon::today(), "08:00" ));
+    }
+
+    $times = Appointment::$times;
+
+    $args = [
+        "times" => $times,
+        "doctors" => User::where("type", "doctor")->where("id", "<>", Auth::id())->get(),
+        "appointments" => $appointments,
+    ];
+
+    //if (request()->has("doctor"))
+    $args = array_merge($args, [
+        "doctor" => User::find(request()->get("doctor"))
+    ]);
+
+    dd($args);
+
+
+});
