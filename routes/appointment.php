@@ -25,7 +25,7 @@ Route::get("/appointment/create", function() {
 
     //if (request()->has("doctor"))
     $args = array_merge($args, [
-        "doctor" => User::findOrFail(request()->get("doctor"))
+        "doctor" => User::find(request()->get("doctor"))
     ]);
 
     return view("appointment.create", $args);
